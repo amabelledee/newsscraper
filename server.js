@@ -19,7 +19,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to database
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 const db = mongoose.connection;
