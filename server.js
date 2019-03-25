@@ -19,20 +19,14 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to database
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-// mongoose.connect("mongodb://localhost/newsscraper");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
+db.once("open", function () {
   console.log("Connected to Mongoose!");
 });
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
-
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //Routes
 const routes = require("./controller/controller.js");
