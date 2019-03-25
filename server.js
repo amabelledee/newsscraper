@@ -19,7 +19,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to database
-mongoose.connect("mongodb://localhost/newsscraper");
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/newsscraper");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -36,9 +39,9 @@ const routes = require("./controller/controller.js");
 app.use("/", routes);
 
 const port = process.env.PORT || 3000;
-app.listen(port, function() {
-    console.log("Runnin' Runnin' & Runnin' on " + port);
-  });
+app.listen(port, function () {
+  console.log("Runnin' Runnin' & Runnin' on " + port);
+});
 
 
 
