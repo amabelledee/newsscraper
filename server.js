@@ -19,7 +19,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds145752.mlab.com:45752/heroku_pp3t4nxx";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 const db = mongoose.connection;
