@@ -32,9 +32,9 @@ db.once("open", function () {
 const routes = require("./controller/controller.js");
 app.use("/", routes);
 
-const port = process.env.PORT || 3000;
-app.listen(port, function () {
-  console.log("Runnin' Runnin' & Runnin' on " + port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+  console.log("Runnin' Runnin' & Runnin' on " + PORT);
 });
 
 
